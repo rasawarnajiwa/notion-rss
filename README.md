@@ -23,16 +23,18 @@ Generate a live RSS feed (`rss.xml`) from a Notion database using Notion API + G
 | Tanggal Publikasi   | Date             | Tanggal posting                         |
 | Status              | Select (publik)  | Untuk menyaring konten yang ditampilkan |
 
-Contoh template bisa kamu gunakan [di sini](www.https://www.notion.site/rasawarnajiwa/Sudut-Kecil-1e380cf2ce2580298732eddf7e920a4c
+🧩 Contoh template bisa kamu gunakan [di sini](https://rasawarnajiwa.notion.site/Sudut-Kecil-1e380cf2ce2580298732eddf7e920a4c)
 
 ---
 
 ## 🔐 Secrets yang Dibutuhkan
 
-Masukkan ke `Settings > Secrets and variables > Actions`
+Masukkan ke `Settings > Secrets and variables > Actions` di GitHub repo:
 
-- `NOTION_TOKEN` – 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
-- `DATABASE_ID` – 21c80cf2ce2580ecbe3bf790ae81db22
+- `NOTION_TOKEN` – token dari Notion integration (jangan dipublikasikan!)
+- `DATABASE_ID` – ID dari database Notion kamu
+
+> ⚠️ Jangan masukkan API Token ke README publik demi keamanan akun Notion-mu.
 
 ---
 
@@ -44,3 +46,17 @@ Masukkan ke `Settings > Secrets and variables > Actions`
 
 ## 📂 Struktur Folder
 
+```
+notion-rss/
+├── notion-to-rss.js
+├── rss.xml                # (akan dibuat otomatis)
+└── .github/
+    └── workflows/
+        └── rss.yml
+```
+
+---
+
+## 📎 License
+
+MIT – Bebas digunakan untuk blog, refleksi, dokumentasi pribadi, atau komunitas 🌿
