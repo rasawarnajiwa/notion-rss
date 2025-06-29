@@ -3,35 +3,29 @@ name: Update RSS Feed from Notion
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 1 * * *"  # Setiap hari jam 08:00 WIB
+    - cron: "0 1 * * *"
 
 jobs:
   update-rss:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install @notionhq/client dotenv
+      - run: npm install @notionhq/client dotenv
 
-      - name: Run script to generate rss.xml
-        run: node js/main.js
+      - run: node notion-to-rss.js
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DATABASE_ID: ${{ secrets.DATABASE_ID }}
 
-      - name: Commit and push rss.xml
-        run: |
+      - run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add rss.xml
           git commit -m "Update RSS feed" || echo "No changes"
           git push
-          ✨ Add RSS workflow automation
-
